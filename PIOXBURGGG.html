@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Urzędowa Strona Pioxburg_v2</title>
+  <style>
+    body{margin:0;font-family:Inter,Arial;background:#f4f5f7;color:#1a1a1a}
+    header{background:#003366;color:#fff;padding:20px;border-bottom:6px solid #00264d}
+    h1{margin:0;font-size:28px;font-weight:700}
+    nav{background:#e6e9ed;padding:10px 20px;display:flex;gap:20px;border-bottom:2px solid #c9ccd1}
+    nav a{text-decoration:none;color:#003366;font-weight:600}
+    .container{display:grid;grid-template-columns:260px 1fr;gap:20px;padding:20px}
+    aside{background:#ffffff;border:1px solid #c9ccd1;border-radius:8px;padding:16px}
+    main{background:#ffffff;border:1px solid #c9ccd1;border-radius:8px;padding:20px}
+    .section{margin-bottom:24px}
+    .title{font-size:20px;font-weight:700;margin-bottom:6px;color:#003366}
+    .label{color:#555;font-weight:600;margin-top:8px}
+    table{width:100%;border-collapse:collapse;margin-top:10px}
+    td,th{border:1px solid #c9ccd1;padding:8px;font-size:14px}
+    th{background:#e6e9ed;text-align:left}
+    footer{margin-top:30px;padding:18px;background:#003366;color:#fff;text-align:center;font-size:14px}
+  </style>
+
+</head>
+<body>
+<header style="position:relative;">
+  <h1>Urzędowy Portal Pioxburg_v2 — RP & Budowanie</h1>
+  <h3>Wersja 1.1.0</h3>
+
+  <button onclick="logout()" 
+    style="
+      position:absolute;
+      right:20px;
+      top:20px;
+      padding:6px 14px;
+      background:#cc0000;
+      color:#fff;
+      border:none;
+      border-radius:6px;
+      cursor:pointer;
+      font-weight:600;
+    ">
+    Wyloguj się
+  </button>
+</header>
+
+<nav>
+  <a href="#info">Dane i informacje serwera</a>
+  <a href="#obywatele">Obywatele</a>
+  <a href="#wioski">Wioski</a>
+  <a href="#kolej">Kolej</a>
+  <a href="#mapa">Mapa</a>
+  <a href="#status">Status serwera</a>
+   <a href="#urzedy">Urzędy</a>
+     <a href="#powiaty">Powiaty</a>
+    <a href="#money">Waluty</a>
+</nav>
+<div class="container">
+  <aside>
+  <div class="section">
+      <div class="title">Widzisz jakiś błąd ? Zgłoś go klikając link :</div>
+  <a href="https://github.com/P10x1/Pioxburg_v2/issues/new" target="_blank">
+  Zgłoś błąd
+</a>
+</div>
+    <div class="section">
+      <div class="title">Menu urzędowe</div>
+      <ul>
+        <li>Informacje ogólne</li>
+        <li>Rejestr obywateli</li>
+        <li>Mapa administracyjna</li>
+        <li>Transport publiczny</li>
+        <li>Prawa i regulaminy</li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <section id="info" class="section">
+      <div class="title">Dane i informacje serwera</div>
+      <table>
+        <tr><th>Parametr</th><th>Wartość</th></tr>
+        <tr><td>Adres serwera</td><td>miasto_piotrkow.aternos.me:54628</td></tr>
+        <tr><td>Wersja</td><td>1.20.1</td></tr>
+		<tr><td>Silnik</td><td>Forge</td></tr>
+		<tr><td>Mody</td><td>SecurityCraft [1.10.0.1], SecurityCraft [1.10.1], Alex's Mobs [1.22.9], Architectury [9.2.14], Biomes O’ Plenty [18.0.0.592], Car Mod [1.0.34], Citadel [2.6.2], Exline Furniture [2.7.3], Grass Overhaul [23.10.10], JCM [2.0.0], JEI [15.20.0.112], JourneyMap [5.10.3], Macaw's Doors [1.1.2], Macaw's Fences [1.2.0], Macaw's Furniture [3.3.0], Macaw's Furniture [3.4.0], Macaw's Holidays [1.1.0], Macaw's Lights [1.1.2], Macaw's HolidayStuff [1.1.1 – MC1.20.1], Macaw's HolidayStuff [1.1.1 – MC1.20.2], Macaw's Paintings [1.0.5], Macaw's Roofs [2.3.2], Macaw's Trapdoors [1.1.4], Macaw's Windows [2.4.0], MTR [4.0.1], MTR Russian Metro Addon [4.0.0–2.0.0], TerraBlender [3.0.1.10], Traveler’s Backpack [9.1.45], WorldEdit [7.2.15]</td></tr>
+      </table>
+    </section>
+
+    <section id="obywatele" class="section">
+      <div class="title">Rejestr Obywateli</div>
+      <table>
+        <tr><th>Nick</th><th>Imię i nazwisko</th><th>Ranga</th><th>Właściciel wioski</th></tr>
+        <tr><td>pioxi_minecraft</td><td>Piotr Rejmentowski</td><td>Główny prezydent</td><td>Piotrków, Piotrowska góra</td></tr>
+        <tr><td>sokowypanek</td><td>Filip Miakisz</td><td>Administrator</td><td>Wioska filipa</td></tr>
+        <tr><td>BurgerJami</td><td>Natan Sulewski</td><td>Starosta serwera</td><td>Wioska natana</td></tr>
+		<tr><td>Juliksonxd</td><td>Julia Stanka</td><td>Starosta serwera</td><td>Juliksonowo, Wioska julki 2</td></tr>
+		<tr><td>anyanax</td><td>Zuzanna Liwska</td><td>Starosta serwera</td><td>Dżanowo</td></tr>
+		<tr><td>milki-kot</td><td>Aleksandra Wysocka</td><td>Starosta serwera</td><td>Mleczna kraina</td></tr>
+		
+      </table>
+    </section>
+
+    <section id="wioski" class="section">
+      <div class="title">Rejestr miejscowości</div>
+      <table>
+        <tr><th>Nazwa</th><th>Rodzaj miejscowości</th><th>Koordynaty</th><th>Województwo</th><th>Gmina / Powiat</th><th>Miejsca transportowe</th></tr>
+        <tr><td>Piotrków</td><td>Stolica serwera i stolica woj. piotrkowskiego</td><td>-896, 34, 184</td><td>Piotrkowskie</td><td>Piotrków / Piotrkowski</td><td>Stacje kolejowe, port lotniczy</td></tr>
+        <tr><td>Mleczna kraina</td><td>Miejscowość</td><td>-2970, 0, 333</td><td>Braszowskie</td><td>Piotrowska góra / Piotrowsko-górskie</td><td>Stacje kolejowe, port lotniczy</td></tr>
+		<tr><td>Piotrowska góra</td><td>Miejscowość ale na prawach gminy / powiatu</td><td>-2970, 0, 333</td><td>Braszowskie</td><td>Piotrowska góra / Piotrowsko-górskie</td><td>Stacja kolejowa</td></tr>
+		<tr><td>Wioska natana</td><td>Miejscowość</td><td>3037, 0, 413</td><td>Piotrkowskie</td><td>x</td><td>Stacja kolejowa</td></tr>
+		<tr><td>Wioska filipa</td><td>Miejscowość ale na prawach gminy / powiatu</td><td>nieznane</td><td>Piotrkowskie</td><td>x</td><td>Stacja kolejowa</td></tr>
+      </table>
+    </section>
+
+    <section id="kolej" class="section">
+      <div class="title">Sieć Pioxburskich kolei państwowych (PKP)</div>
+      <table>
+        <tr><th>Linia</th><th>Ze stacji</th><th>Przez</th><th>Do stacji</th><th>Status</th></tr>
+        <tr><td>EPP1</td><td>Braszów główny</td><td>Brak</td><td>Piotrków centralny</td><td>W budowie</td></tr>
+		<tr><td>EPP2</td><td>Radom główny</td><td>Brak</td><td>Piotrków centralny</td><td>W budowie</td></tr>
+		<tr><td>EPP3</td><td>Braszów główny</td><td>Brak</td><td>Radom główny</td><td>W budowie</td></tr>
+		<tr><td>IC1</td><td>Braszów główny</td><td>Braszów wschodni, Piotrowska góra, Piotrków centralny, Piotrków północny, Wioska julki 2</td><td>Juliksonowo główne</td><td>W budowie</td></tr>
+		<tr><td>IC2</td><td>Radom główny</td><td>Radom północny, Dżanowo, Piotrków południowy, Piotrków centralny, Piotrków wschodni, Wioska filipa</td><td>Wioska natana</td><td>W budowie</td></tr>
+		<tr><td>PXR1</td><td>Radom główny</td><td>Radom północny, Dżanowo, Piotrków południowy, Piotrków centralny, Piotrków półocny, Wioska julki 2</td><td>Juliksonowo główne</td><td>W budowie</td></tr>
+		<tr><td>PXR2</td><td>Braszów główny</td><td>Braszów wschodni, Piotrowska góra, Piotrków centralny, Piotrków wschodni, Wioska filipa</td><td>Wioska natana</td><td>W budowie</td></tr>
+		<tr><td>SKM1</td><td>Piotrków targówek</td><td>Piotrków algeria, Piotrków centralny, Piotrków północny</td><td>Piotrków piotrkówek</td><td>W budowie</td></tr>
+		<tr><td>SKM1</td><td>Piotrków ursus</td><td>Piotrków południowy, Piotrków centralny, Piotrków śródmieście, Piotrków wschodni</td><td>Piotrków port lotniczy</td><td>W budowie</td></tr>
+      </table>
+	  <table>
+	  <tr><th>Skrót</th><th>Pełna nazwa</th></tr>
+	  <tr><td>EPP</td><td>Expres piox premium</td></tr>
+	  <tr><td>IC</td><td>Intercity</td></tr>
+	  <tr><td>PXR</td><td>Pioxregio</td></tr>
+	  <tr><td>SKM</td><td>Szybka kolej miejska w Piotrkowie</td></tr>
+	  </table>
+    </section>
+
+    <section id="mapa" class="section">
+      <div class="title">Mapa kolei i podziałów administracyjnych</div>
+      <p>Kliknij by zobaczyć: <a href="https://ne0z27.webwave.dev/lib/ne0z27/Mapa-kolei-i-podzialow-administracyjnych-pioxburg_v2-mina9eky.png">Otwórz mapę</a></p>
+    </section>
+	
+	<section id="status" class="section">
+      <div class="title">Status serwera</div>
+      <p>Pobierz / Wyświetl status: <a href="https://ne0z27.webwave.dev/lib/ne0z27/STATUS-PIOXBURG_V2-mim44mij.pdf">Wyświetl status</a></p>
+    </section>
+	
+	    <section id="urzedzy" class="section">
+      <div class="title">Występowanie urzędów</div>
+      <table>
+        <tr><th>Miasto / Miejscowość</th><th>Występujący urząd</th><th>Funkcja urzędu</th><th>Miejscowości obejmujący (powiatowy)</th></tr>
+        <tr><td>Piotrków</td><td>Wojewódzki</td><td>Wojewódzki, Gminny, Powiatowy</td><td>Piotrków wyłącznie</td></tr>
+        <tr><td>Braszów</td><td>Wojewódzki</td><td>Wojewódzki, Gminny, Powiatowy</td><td>Braszów wyłącznie</td></tr>
+        <tr><td>Radom</td><td>Wojewódzki</td><td>Wojewódzki, Gminny, Powiatowy</td><td>Radom wyłącznie</td></tr>
+		<tr><td>Juliksonowo</td><td>Powiatowy</td><td>Powiatowy, Gminny</td><td>Juliksonowo, Świętoziem, Wioska julki 2</td></tr>
+		<tr><td>Piotrowska góra</td><td>Powiatowy</td><td>Powiatowy, Gminny</td><td>Piotrowska góra, Mleczna kraina</td></tr>
+		<tr><td>Wioska filipa</td><td>Powiatowy</td><td>Powiatowy, Gminny</td><td>Wioska filipa, Wioska natana</td></tr>
+		<tr><td>Dżanowo</td><td>Gminny</td><td>Gminny</td><td>Dżanowo wyłącznie</td></tr>
+      </table>
+    </section>
+	
+	<section id="powiaty" class="section">
+      <div class="title">Powiaty</div>
+      <table>
+        <tr><th>Powiat</th><th>Skrót (na tablicach)</th><th>Obejmujące miasta</th></tr>
+        <tr><td>Piotrkowski</td><td>PTR</td><td>Piotrków</td></tr>
+        <tr><td>Braszowski</td><td>BRW</td><td>Braszów</td></tr>
+        <tr><td>Radomski</td><td>RDM</td><td>Radom, Dżanowo</td></tr>
+		<tr><td>Piotrowsko-górski</td><td>PTG</td><td>Piotrowska góra, Mleczna kraina</td></tr>
+		<tr><td>Juliksonowski</td><td>JLN</td><td>Juliksonowo, Świętoziem, Wioska julki 2</td></tr>
+		<tr><td>Wioska filipa</td><td>XXX</td><td>Wioska filipa, Wioska natana</td></tr>
+      </table>
+    </section>
+	
+		    <section id="money" class="section">
+      <div class="title">Waluty</div>
+      <table>
+        <tr>
+        <th>Waluta</th>
+        <th>Wartość 1 sztuki w PLN</th>
+        <th>W złocie</th>
+        <th>W żelazie</th>
+        <th>W szmaragdach</th>
+        <th>W diamentach</th>
+    </tr>
+
+    <tr>
+        <td>1 Żelazo</td>
+        <td>1 PLN</td>
+        <td>0.2 szt.</td>
+        <td>1 szt.</td>
+        <td>0.05 szt.</td>
+        <td>0.1 szt.</td>
+    </tr>
+
+    <tr>
+        <td>1 Złoto</td>
+        <td>5 PLN</td>
+        <td>1 szt.</td>
+        <td>5 szt.</td>
+        <td>0.25 szt.</td>
+        <td>0.5 szt.</td>
+    </tr>
+
+    <tr>
+        <td>1 Diament</td>
+        <td>10 PLN</td>
+        <td>2 szt.</td>
+        <td>10 szt.</td>
+        <td>0.5 szt.</td>
+        <td>1 szt.</td>
+    </tr>
+
+    <tr>
+        <td>1 Szmaragd</td>
+        <td>20 PLN</td>
+        <td>4 szt.</td>
+        <td>20 szt.</td>
+        <td>1 szt.</td>
+        <td>2 szt.</td>
+    </tr>
+</table>
+    </section>
+	
+	
+	
+	
+  </main>
+</div>
+<footer>© 2025 Urząd Pioxburg_v2 — Wszystkie prawa zastrzeżone - Zakaz rozpowszechniania</footer>
+</body>
+
+  <script>
+if (sessionStorage.getItem("pioxburg_logged") !== "true") {
+    alert("Jesteś niezalogowany! Zaloguj się.");
+    window.location.href = "login.html";
+}
+</script>
+<script>
+function logout() {
+    localStorage.removeItem("pioxburg_logged");
+    window.location.href = "login.html";
+}
+</script>
+
+</html>
