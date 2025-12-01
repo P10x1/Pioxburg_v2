@@ -235,14 +235,15 @@
   <script>
 if (sessionStorage.getItem("pioxburg_logged") !== "true") {
     alert("Jesteś niezalogowany! Zaloguj się.");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 </script>
 <script>
 function logout() {
     localStorage.removeItem("pioxburg_logged");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 </script>
 
 </html>
+
