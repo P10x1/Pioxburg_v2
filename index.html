@@ -124,41 +124,20 @@ button:hover{
 </div>
 
 <script>
-  <script>
 const users = [
-  {
-    nick: "pioxi_minecraft",
-    login: "P180911"
-  },
-  {
-    nick: "sokowypanek",
-    login: "F230411"
-  },
-  {
-    nick: "BurgerJami",
-    login: "N181011"
-  },
-  {
-    nick: "KATIKOT111",
-    login: "A101111"
-  },
-  {
-    nick: "Juliksonxd",
-    login: "J181211"
-  },
-  {
-    nick: "anyanax",
-    login: "Z281211"
-  }
+  { nick: "pioxi_minecraft", login: "P180911" },
+  { nick: "sokowypanek", login: "F230411" },
+  { nick: "BurgerJami", login: "N181011" },
+  { nick: "KATIKOT111", login: "A101111" },
+  { nick: "Juliksonxd", login: "J181211" },
+  { nick: "anyanax", login: "Z281211" }
 ];
 
-<script>
 function login() {
   const nick = document.getElementById("nick").value.trim();
   const loginU = document.getElementById("login").value.trim();
   const token = document.getElementById("token").value.trim();
 
-  // 🔍 sprawdzanie bazy
   const user = users.find(
     u => u.nick === nick && u.login === loginU
   );
@@ -168,15 +147,10 @@ function login() {
     return;
   }
 
-  // jeśli nick + login OK → sprawdzamy 2FA na backendzie
   fetch("https://pioxburg-auth.onrender.com/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      nick: nick,
-      login: loginU,
-      token: token
-    })
+    body: JSON.stringify({ nick, login: loginU, token })
   })
   .then(r => {
     if (r.ok) {
@@ -190,11 +164,9 @@ function login() {
   .catch(() => alert("Błąd połączenia z serwerem"));
 }
 </script>
-
-</script>
-
 </body>
 </html>
+
 
 
 
