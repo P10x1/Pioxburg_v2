@@ -360,12 +360,14 @@ if (sessionStorage.getItem("pioxburg_logged") !== "true") {
 </script>
 <script>
 function logout() {
-    localStorage.removeItem("pioxburg_logged");
+    sessionStorage.removeItem("pioxburg_logged");
     window.location.href = "index.html";
 }
 </script>
 
+
 </html>
+
 
 
 
