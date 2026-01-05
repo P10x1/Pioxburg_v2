@@ -124,32 +124,14 @@ button:hover{
 </div>
 
 <script>
-const users = {
-  pioxi_minecraft: {
-    login: "P180911",
-    twofa: "JBSWY3DPEHPK3PXP"  // 16 znaków, poprawne Base32
-  },
-  sokowypanek: {
-    login: "F230411",
-    twofa: "KZXW6YTBOIYQ2L6P"  // rozszerzony do 16 znaków Base32
-  },
-  BurgerJami: {
-    login: "N181011",
-    twofa: "MFRGGZDFMZTWQ2LK"  // już było poprawne
-  },
-  KATIKOT111: {
-    login: "A101111",
-    twofa: "NB2CFEJSOQW2R7LX"  // zmieniony, 16 znaków Base32, bez kropki
-  },
-  Juliksonxd: {
-    login: "J181211",
-    twofa: "ONSWG4TFOQXW2L7K"  // rozszerzony do 16 znaków Base32
-  },
-  anyanax: {
-    login: "Z281211",
-    twofa: "KRUGS4TFOIYQ2L6N"  // rozszerzony do 16 znaków Base32
-  }
-};
+const users = [
+  { nick: "pioxi_minecraft", login: "P180911" },
+  { nick: "sokowypanek", login: "F230411" },
+  { nick: "BurgerJami", login: "N181011" },
+  { nick: "KATIKOT111", login: "A101111" },
+  { nick: "Juliksonxd", login: "J181211" },
+  { nick: "anyanax", login: "Z281211" }
+];
 
 
 function login() {
@@ -185,6 +167,7 @@ function login() {
 </script>
 </body>
 </html>
+
 
 
 
