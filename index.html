@@ -110,9 +110,6 @@ button:hover{
     <label>Login urzędowy</label>
     <input id="login" placeholder="np. prezydent">
 
-    <label>Hasło</label>
-    <input id="password" type="password" placeholder="••••••••">
-
     <label>Kod z Authenticatora</label>
     <input id="token" placeholder="6-cyfrowy kod">
 
@@ -127,33 +124,64 @@ button:hover{
 </div>
 
 <script>
-function login(){
-  const nick = document.getElementById("nick").value;
-  const loginU = document.getElementById("login").value;
-  const password = document.getElementById("password").value;
-  const token = document.getElementById("token").value;
+  <script>
+const users = [
+  {
+    nick: "pioxi_minecraft",
+    login: "prezydent"
+  },
+  {
+    nick: "sokowypanek",
+    login: "administrator"
+  },
+  {
+    nick: "BurgerJami",
+    login: "starosta"
+  }
+];
 
+<script>
+function login() {
+  const nick = document.getElementById("nick").value.trim();
+  const loginU = document.getElementById("login").value.trim();
+  const token = document.getElementById("token").value.trim();
+
+  // 🔍 sprawdzanie bazy
+  const user = users.find(
+    u => u.nick === nick && u.login === loginU
+  );
+
+  if (!user) {
+    alert("Nieprawidłowy nick lub login.");
+    return;
+  }
+
+  // jeśli nick + login OK → sprawdzamy 2FA na backendzie
   fetch("https://pioxburg-auth.onrender.com/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       nick: nick,
       login: loginU,
-      password: password,
       token: token
     })
   })
   .then(r => {
-    if(r.ok){
+    if (r.ok) {
+      sessionStorage.setItem("pioxburg_logged", "true");
+      sessionStorage.setItem("pioxburg_nick", nick);
       window.location.href = "PIOXBURGGG.html";
     } else {
-      alert("Błędne dane logowania lub kod 2FA");
+      alert("Błędny kod Authenticatora");
     }
   })
   .catch(() => alert("Błąd połączenia z serwerem"));
 }
 </script>
 
+</script>
+
 </body>
 </html>
+
 
