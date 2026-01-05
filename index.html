@@ -1,182 +1,157 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Logowanie — Pioxburg_v2</title>
+<meta charset="UTF-8">
+<title>Logowanie urzędowe – Pioxburg_v2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Inter, Arial;
-      background: #f4f5f7;
-      color: #1a1a1a;
-    }
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#f4f5f7;
+  font-family:Inter, Arial, sans-serif;
+}
 
-    .login-wrapper {
-      width: 340px;
-      margin: 80px auto;
-      background: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      padding: 24px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    }
+.login-box{
+  width:360px;
+  background:#ffffff;
+  border-radius:10px;
+  border:1px solid #c9ccd1;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+  overflow:hidden;
+}
 
-    h2 {
-      text-align: center;
-      color: #003366;
-      margin-bottom: 10px;
-    }
+.login-header{
+  background:#003366;
+  color:white;
+  padding:20px;
+  text-align:center;
+}
 
-    label {
-      font-weight: 600;
-      display: block;
-      margin-top: 14px;
-      color: #003366;
-    }
+.login-header h1{
+  margin:0;
+  font-size:22px;
+}
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      font-size: 15px;
-      border: 1px solid #aaa;
-      border-radius: 8px;
-    }
+.login-header p{
+  margin:5px 0 0;
+  font-size:13px;
+  opacity:.9;
+}
 
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      background: #003366;
-      color: white;
-      font-size: 16px;
-      font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+.login-body{
+  padding:20px;
+}
 
-    #nickStep, #otpStep {
-      display: none;
-    }
+label{
+  font-size:13px;
+  font-weight:600;
+  color:#003366;
+}
 
-    #otpBox {
-      background: #eaf1ff;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #99b3dd;
-      margin-top: 16px;
-      text-align: center;
-      font-size: 20px;
-      letter-spacing: 2px;
-      color: #003366;
-      font-weight: 700;
-    }
-  </style>
+input{
+  width:100%;
+  padding:10px;
+  margin-top:6px;
+  margin-bottom:14px;
+  border-radius:6px;
+  border:1px solid #c9ccd1;
+  font-size:14px;
+}
+
+input:focus{
+  outline:none;
+  border-color:#003366;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  background:#003366;
+  color:white;
+  border:none;
+  border-radius:6px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#00264d;
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#666;
+  margin-top:15px;
+}
+</style>
 </head>
 
 <body>
 
-<div class="login-wrapper">
-  <h2>Logowanie</h2>
-<p style="text-align:center; color:#444; margin-top:-5px;">
-  Logujesz się do systemu Urzędu Pioxburg_v2.<br>
-  Dostęp wyłącznie dla uprawnionych urzytkowników.
-</p>
+<div class="login-box">
 
-  <!-- KROK 1 — LOGIN -->
-  <div id="loginStep">
-    <label>Login</label>
-    <input type="text" id="loginInput" placeholder="Wpisz login">
-    <button onclick="checkLogin()">Dalej</button>
+  <div class="login-header">
+    <h1>Urzędowy Portal</h1>
+    <p>Pioxburg_v2 — logowanie 2FA</p>
   </div>
 
-  <!-- KROK 2 — NICK -->
-  <div id="nickStep">
-    <label>Nick z gry</label>
-    <input type="text" id="nickInput" placeholder="Wpisz nick Minecraft">
-    <button onclick="checkNick()">Dalej</button>
-  </div>
+  <div class="login-body">
 
-  <!-- KROK 3 — KOD OTP -->
-  <div id="otpStep">
-    <label>Twój kod jednorazowy:</label>
-    <div id="otpBox"></div>
+    <label>Nick gracza</label>
+    <input id="nick" placeholder="np. pioxi">
 
-    <label>Wpisz kod</label>
-    <input type="text" id="otpInput">
-    <button onclick="verifyOTP()">Zaloguj</button>
+    <label>Login urzędowy</label>
+    <input id="login" placeholder="np. prezydent">
+
+    <label>Hasło</label>
+    <input id="password" type="password" placeholder="••••••••">
+
+    <label>Kod z Authenticatora</label>
+    <input id="token" placeholder="6-cyfrowy kod">
+
+    <button onclick="login()">Zaloguj się</button>
+
+    <div class="footer">
+      Dostęp tylko dla uprawnionych obywateli
+    </div>
+
   </div>
 
 </div>
 
-
 <script>
-// Lista użytkowników: LOGIN => NICK
-// Możesz zmienić loginy na inne!
-const users = {
-    "P180911": "pioxi_minecraft",
-    "F230411": "sokowypanek",
-    "N181011": "BurgerJami",
-    "J181211": "Juliksonxd",
-    "Z281211": "anyanax",
-    "A101111": "milki-kot"
-};
+function login(){
+  const nick = document.getElementById("nick").value;
+  const loginU = document.getElementById("login").value;
+  const password = document.getElementById("password").value;
+  const token = document.getElementById("token").value;
 
-let selectedLogin = null;
-let generatedOTP = null;
-
-// Krok 1 — sprawdz login
-function checkLogin() {
-    const login = document.getElementById("loginInput").value.trim();
-
-    if (!users[login]) {
-        alert("Niepoprawny login!");
-        return;
-    }
-
-    selectedLogin = login;
-
-    document.getElementById("loginStep").style.display = "none";
-    document.getElementById("nickStep").style.display = "block";
-}
-
-// Krok 2 — sprawdz nick
-function checkNick() {
-    const nick = document.getElementById("nickInput").value.trim();
-
-    if (nick !== users[selectedLogin]) {
-        alert("Nick nie pasuje do tego loginu!");
-        return;
-    }
-
-    // generujemy kod
-    generatedOTP = Math.floor(100000 + Math.random() * 900000);
-
-    document.getElementById("otpBox").innerText = generatedOTP;
-    document.getElementById("nickStep").style.display = "none";
-    document.getElementById("otpStep").style.display = "block";
-}
-
-// Krok 3 — weryfikacja kodu
-function verifyOTP() {
-    const code = document.getElementById("otpInput").value.trim();
-
-    if (code == generatedOTP) {
-
-        // ZAPISANIE LOGOWANIA
-        sessionStorage.setItem("pioxburg_logged", "true");
-
-        // PRZEKIEROWANIE
-        window.location.href = "PIOXBURGGG.html";
-
+  fetch("https://pioxburg-auth.onrender.com/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      nick: nick,
+      login: loginU,
+      password: password,
+      token: token
+    })
+  })
+  .then(r => {
+    if(r.ok){
+      window.location.href = "panel.html";
     } else {
-        alert("Niepoprawny kod!");
+      alert("Błędne dane logowania lub kod 2FA");
     }
+  })
+  .catch(() => alert("Błąd połączenia z serwerem"));
 }
-
 </script>
 
 </body>
